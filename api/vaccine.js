@@ -18,7 +18,6 @@ module.exports = (app) => {
       .catch((err) => req.status(500).json(err));
   };
 
-  /*
   const save = (req, res) => {
     if (!req.body.nome.trim() || !req.body.status.trim() || !req.body.data) {
       return res
@@ -34,6 +33,8 @@ module.exports = (app) => {
       .then((_) => res.status(204).send())
       .catch((err) => res.status(400).json(err));
   };
+
+  /*
 
   const remove = (req, res) => {
     app
@@ -64,5 +65,5 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   }; */
 
-  return { getListVaccines, getVaccine };
+  return { getListVaccines, getVaccine, save };
 };

@@ -17,7 +17,8 @@ module.exports = (app) => {
   app
     .route("/pets/:petId/vaccines")
     .all(app.config.passport.authenticate())
-    .get(app.api.vaccine.getListVaccines);
+    .get(app.api.vaccine.getListVaccines)
+    .post(app.api.vaccine.save);
 
   app
     .route("/pets/:petId/vaccines/:id")
