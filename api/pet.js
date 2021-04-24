@@ -1,12 +1,20 @@
 const moment = require("moment");
 
 module.exports = (app) => {
-  const getPets = (req, res) => {
+  const getListPets = (req, res) => {
     app
       .db("pets")
       .where({ userId: req.user.id })
       .orderBy("id")
       .then((pets) => res.json(pets))
+      .catch((err) => req.status(500).json(err));
+  };
+
+  const getPet = (req, res) => {
+    app
+      .db("pets")
+      .where({ id: req.params.id })
+      .then((pet) => res.json(pet))
       .catch((err) => req.status(500).json(err));
   };
 
@@ -58,5 +66,5 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   };
 
-  return { getPets, save, remove, updatePet };
+  return { getListPets, getPet, save, remove, updatePet };
 };

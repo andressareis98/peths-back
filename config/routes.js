@@ -5,14 +5,15 @@ module.exports = (app) => {
   app
     .route("/pets")
     .all(app.config.passport.authenticate())
-    .get(app.api.pet.getPets)
+    .get(app.api.pet.getListPets)
     .post(app.api.pet.save);
 
   app
     .route("/pets/:id")
     .all(app.config.passport.authenticate())
-    .delete(app.api.pet.remove)
-    .put(app.api.pet.updatePet);
+    .get(app.api.pet.getPet)
+    .put(app.api.pet.updatePet)
+    .delete(app.api.pet.remove);
 
   app
     .route("/pets/:petId/vaccines")
@@ -40,5 +41,3 @@ module.exports = (app) => {
     .put(app.api.consultation.updateConsultation)
     .delete(app.api.consultation.remove);
 };
-
-/* return { getVaccines, getVaccine, save, remove, updateVaccine }; */
