@@ -34,6 +34,19 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   };
 
+  const updateVaccine = (req, res) => {
+    app
+      .db("vaccines")
+      .where({ id: req.params.id, petId: req.params.petId })
+      .update({
+        nome: req.body.nome,
+        data: req.body.data,
+        status: req.body.status,
+      })
+      .then((_) => res.status(204).send())
+      .catch((err) => res.status(400).json(err));
+  };
+
   /*
 
   const remove = (req, res) => {
@@ -52,18 +65,7 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   };
 
-  const updateVaccine = (req, res) => {
-    app
-      .db("vaccines")
-      .where({ id: req.params.id, petId: req.params.petId })
-      .update({
-        nome: req.body.nome,
-        data: req.body.data,
-        status: req.body.status,
-      })
-      .then((_) => res.status(204).send())
-      .catch((err) => res.status(400).json(err));
-  }; */
+   */
 
-  return { getListVaccines, getVaccine, save };
+  return { getListVaccines, getVaccine, save, updateVaccine };
 };

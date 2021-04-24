@@ -23,7 +23,8 @@ module.exports = (app) => {
   app
     .route("/pets/:petId/vaccines/:id")
     .all(app.config.passport.authenticate())
-    .get(app.api.vaccine.getVaccine);
+    .get(app.api.vaccine.getVaccine)
+    .put(app.api.vaccine.updateVaccine);
 };
 
 /* return { getVaccines, getVaccine, save, remove, updateVaccine }; */
