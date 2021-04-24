@@ -47,8 +47,6 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   };
 
-  /*
-
   const remove = (req, res) => {
     app
       .db("vaccines")
@@ -65,7 +63,5 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   };
 
-   */
-
-  return { getListVaccines, getVaccine, save, updateVaccine };
+  return { getListVaccines, getVaccine, save, updateVaccine, remove };
 };
