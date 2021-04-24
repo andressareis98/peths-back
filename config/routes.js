@@ -26,6 +26,16 @@ module.exports = (app) => {
     .get(app.api.vaccine.getVaccine)
     .put(app.api.vaccine.updateVaccine)
     .delete(app.api.vaccine.remove);
+
+  app
+    .route("/pets/:petId/consultations")
+    .all(app.config.passport.authenticate())
+    .get(app.api.consultation.getListConsultations);
+
+  app
+    .route("/pets/:petId/consultations/:id")
+    .all(app.config.passport.authenticate())
+    .get(app.api.consultation.getConsultation);
 };
 
 /* return { getVaccines, getVaccine, save, remove, updateVaccine }; */
