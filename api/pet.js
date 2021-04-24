@@ -35,7 +35,7 @@ module.exports = (app) => {
         if (rowsDeleted > 0) {
           res.status(204).send();
         } else {
-          const msg = "Não foi encontrado task com o id ";
+          const msg = "Não foi encontrado pet com o id ";
           res.status(400).send(msg);
         }
       })

@@ -13,4 +13,11 @@ module.exports = (app) => {
     .all(app.config.passport.authenticate())
     .delete(app.api.pet.remove)
     .put(app.api.pet.updatePet);
+
+  app
+    .route("/pets/:petId/vaccines")
+    .all(app.config.passport.authenticate())
+    .get(app.api.vaccine.getListVaccines);
 };
+
+/* return { getVaccines, getVaccine, save, remove, updateVaccine }; */
