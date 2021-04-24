@@ -38,20 +38,21 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   };
 
-  /* 
-
-  const updateVaccine = (req, res) => {
+  const updateConsultation = (req, res) => {
     app
-      .db("vaccines")
+      .db("consultations")
       .where({ id: req.params.id, petId: req.params.petId })
       .update({
-        nome: req.body.nome,
         data: req.body.data,
-        status: req.body.status,
+        peso: req.body.peso,
+        diagnostico: req.body.diagnostico,
+        prescricao: req.body.prescricao,
       })
       .then((_) => res.status(204).send())
       .catch((err) => res.status(400).json(err));
   };
+
+  /* 
 
   const remove = (req, res) => {
     app
@@ -69,5 +70,5 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   }; */
 
-  return { getListConsultations, getConsultation, save };
+  return { getListConsultations, getConsultation, save, updateConsultation };
 };

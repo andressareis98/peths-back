@@ -36,7 +36,8 @@ module.exports = (app) => {
   app
     .route("/pets/:petId/consultations/:id")
     .all(app.config.passport.authenticate())
-    .get(app.api.consultation.getConsultation);
+    .get(app.api.consultation.getConsultation)
+    .put(app.api.consultation.updateConsultation);
 };
 
 /* return { getVaccines, getVaccine, save, remove, updateVaccine }; */
