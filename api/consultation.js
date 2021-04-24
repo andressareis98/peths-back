@@ -52,23 +52,27 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   };
 
-  /* 
-
   const remove = (req, res) => {
     app
-      .db("vaccines")
+      .db("consultations")
       .where({ id: req.params.id, petId: req.params.petId })
       .del()
       .then((rowsDeleted) => {
         if (rowsDeleted > 0) {
           res.status(204).send();
         } else {
-          const msg = "Não foi encontrado vacina com o id informado";
+          const msg = "Não foi encontrado consulta com o id informado";
           res.status(400).send(msg);
         }
       })
       .catch((err) => res.status(400).json(err));
-  }; */
+  };
 
-  return { getListConsultations, getConsultation, save, updateConsultation };
+  return {
+    getListConsultations,
+    getConsultation,
+    save,
+    updateConsultation,
+    remove,
+  };
 };
