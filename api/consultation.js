@@ -18,23 +18,27 @@ module.exports = (app) => {
       .catch((err) => req.status(500).json(err));
   };
 
-  /* 
-
   const save = (req, res) => {
-    if (!req.body.nome.trim() || !req.body.status.trim() || !req.body.data) {
+    if (
+      !req.body.peso.trim() ||
+      !req.body.diagnostico.trim() ||
+      !req.body.data
+    ) {
       return res
         .status(400)
-        .send("Os campos a seguir são obrigatorios: data, nome e status");
+        .send("Os campos a seguir são obrigatorios: data, peso e diagnostico");
     }
 
     req.body.petId = req.params.petId;
 
     app
-      .db("vaccines")
+      .db("consultations")
       .insert(req.body)
       .then((_) => res.status(204).send())
       .catch((err) => res.status(400).json(err));
   };
+
+  /* 
 
   const updateVaccine = (req, res) => {
     app
@@ -65,5 +69,5 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   }; */
 
-  return { getListConsultations, getConsultation };
+  return { getListConsultations, getConsultation, save };
 };

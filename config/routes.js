@@ -30,7 +30,8 @@ module.exports = (app) => {
   app
     .route("/pets/:petId/consultations")
     .all(app.config.passport.authenticate())
-    .get(app.api.consultation.getListConsultations);
+    .get(app.api.consultation.getListConsultations)
+    .post(app.api.consultation.save);
 
   app
     .route("/pets/:petId/consultations/:id")
