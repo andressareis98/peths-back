@@ -18,6 +18,11 @@ module.exports = (app) => {
     .route("/pets/:petId/vaccines")
     .all(app.config.passport.authenticate())
     .get(app.api.vaccine.getListVaccines);
+
+  app
+    .route("/pets/:petId/vaccines/:id")
+    .all(app.config.passport.authenticate())
+    .get(app.api.vaccine.getVaccine);
 };
 
 /* return { getVaccines, getVaccine, save, remove, updateVaccine }; */

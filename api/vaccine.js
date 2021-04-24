@@ -10,7 +10,7 @@ module.exports = (app) => {
       .catch((err) => req.status(500).json(err));
   };
 
-  /* const getVaccine = (req, res) => {
+  const getVaccine = (req, res) => {
     app
       .db("vaccines")
       .where({ id: req.params.id, petId: req.params.petId })
@@ -18,6 +18,7 @@ module.exports = (app) => {
       .catch((err) => req.status(500).json(err));
   };
 
+  /*
   const save = (req, res) => {
     if (!req.body.nome.trim() || !req.body.status.trim() || !req.body.data) {
       return res
@@ -63,5 +64,5 @@ module.exports = (app) => {
       .catch((err) => res.status(400).json(err));
   }; */
 
-  return { getListVaccines };
+  return { getListVaccines, getVaccine };
 };
