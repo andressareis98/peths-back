@@ -53,7 +53,7 @@ module.exports = (app) => {
   const updatePet = (req, res) => {
     app
       .db("pets")
-      .where({ id: req.params.id, userId: req.user.id })
+      .where({ id: req.params.id })
       .update({
         nome: req.body.nome,
         avatarUrl: req.body.avatarUrl,
