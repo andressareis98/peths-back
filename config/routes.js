@@ -2,6 +2,8 @@ module.exports = (app) => {
   app.post("/signup", app.api.user.save);
   app.post("/signin", app.api.auth.signin);
 
+  app.get("/users", app.user.getListUsers);
+
   app
     .route("/pets")
     .all(app.config.passport.authenticate())

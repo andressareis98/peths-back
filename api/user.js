@@ -24,5 +24,13 @@ module.exports = (app) => {
     });
   };
 
-  return { save };
+  const getListUsers = (req, res) => {
+    app
+      .db("user")
+      .orderBy("id")
+      .then((users) => res.json(users))
+      .catch((err) => req.status(500).json(err));
+  };
+
+  return { save, getListUsers };
 };
