@@ -1,7 +1,7 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable("pets", (table) => {
     table.increments("id").primary();
-    table.string("avatarUrl");
+    table.text("avatarUrl");
     table.string("nome").notNull();
 
     table.datetime("anoNascimento").notNull();
