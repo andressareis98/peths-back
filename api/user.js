@@ -26,7 +26,7 @@ module.exports = (app) => {
 
   const getListUsers = (req, res) => {
     app
-      .db("user")
+      .db("users")
       .orderBy("id")
       .then((users) => res.json(users))
       .catch((err) => req.status(500).json(err));
