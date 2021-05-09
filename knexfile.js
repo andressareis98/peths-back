@@ -7,7 +7,7 @@ module.exports = {
     user: "postgres",
     password: "teste123", */
     connectionString:
-      "postgres://mylgaqbxerbtjh:592e396b57169cd976b3c6d793b459ad4c107416b2b23dccb56587569ad0cc49@ec2-52-0-114-209.compute-1.amazonaws.com:5432/d7l67oqg4rt57q",
+      "postgres://euoxoofzqzudfc:f02c5cfd30fc6fcdce75602d604b3fd466f5fdcbcd03f44ad415f1cf1331c818@ec2-54-87-112-29.compute-1.amazonaws.com:5432/d9ual6dniagu9d",
     ssl: { rejectUnauthorized: false },
   },
   pool: {
