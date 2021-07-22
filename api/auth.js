@@ -27,7 +27,6 @@ module.exports = (app) => {
           email: user.email,
           token: jwt.encode(payload, authSecret),
         });
-        res.set('x-access-token', token)
       });
     } else {
       res.status(400).send("Usuário não cadastrado!");
